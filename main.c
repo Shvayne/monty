@@ -56,13 +56,8 @@ int process_file(FILE *file)
 		{NULL, NULL}
 	};
 
-	while (fgets(buffer, bufsize, file) != NULL)
+	while ((line_len = _getline(&buffer, &bufsize, file)) != -1)
 	{
-		line_len = strlen(buffer);
-		if (line_len > 0 && buffer[line_len - 1] == '\n')
-		{
-			buffer[line_len - 1] = '\0';
-		}
 		line_number++;
 		opcode = strtok(buffer, " \n");
 

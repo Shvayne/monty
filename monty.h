@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <unistd.h>
+#include <stdlib.h>
 #ifndef MONTY_H
 #define MONTY_H
 
@@ -38,5 +40,6 @@ int check_argument(int argc);
 FILE *open_file(const char *file_path);
 int process_file(FILE *file);
 void pall(stack_t **stack, unsigned int line_number);
+ssize_t _getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif
