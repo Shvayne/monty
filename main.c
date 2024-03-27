@@ -47,21 +47,28 @@ int process_file(FILE *file)
 	ssize_t line_len;
 	unsigned int line_number = 0;
 	stack_t *stack = NULL;
+	int found;
+	char *opcode;
+	instruction_t *inst;
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
 		{NULL, NULL}
 	};
-	while ((line_len = getline(&buffer, &bufsize, file)) != -1)
+
+	while (fgets(buffer, bufsize, file) != NULL)
 	{
+		line_len = strlen(buffer);
+		if (line_len > 0 && buffer[line_len - 1] == '\n')
+		{
+			buffer[line_len - 1] = '\0';
+		}
 		line_number++;
-		char *opcode = strtok(buffer, " \n");
+		opcode = strtok(buffer, " \n");
 
 		if (opcode == NULL || *opcode == '#')
 			continue;
-		int found = 0;
-		instruction_t *inst;
-
+		found = 0;
 		for (inst = instructions; inst->opcode != NULL; inst++)
 		{
 			if (strcmp(opcode, inst->opcode) == 0)
@@ -90,20 +97,20 @@ int process_file(FILE *file)
  */
 int main(int argc, char *argv[])
 {
+	FILE *file;
+	int status;
+
 	if (check_arguments(argc) == EXIT_FAILURE)
 	{
 		return (EXIT_FAILURE);
 	}
-
-	FILE *file = open_file(argv[1]);
-
+	file = open_file(argv[1]);
 	if (file == NULL)
 	{
 		return (EXIT_FAILURE);
 	}
 
-	int status = process_file(file);
-
+	status = process_file(file);
 	fclose(file);
 	return (status);
 }
