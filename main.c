@@ -53,6 +53,7 @@ int process_file(FILE *file)
 	instruction_t instructions[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", print_top},
 		{NULL, NULL}
 	};
 
