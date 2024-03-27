@@ -37,5 +37,6 @@ void _push(stack_t **stack, int n);
 int check_argument(int argc);
 FILE *open_file(const char *file_path);
 int process_file(FILE *file);
+void pall(stack_t **stack, unsigned int line_number);
 
 #endif

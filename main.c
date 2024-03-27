@@ -49,6 +49,7 @@ int process_file(FILE *file)
 	stack_t *stack = NULL;
 	instruction_t instructions[] = {
 		{"push", push},
+		{"pall", pall},
 		{NULL, NULL}
 	};
 	while ((line_len = getline(&buffer, &bufsize, file)) != -1)
