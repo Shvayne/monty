@@ -131,6 +131,10 @@ void (*select_opcode(char *op))(stack_t **, unsigned int)
         {"push", push},
         {"pall", pall},
         {"pint", pint},
+        {"pop", pop},
+        {"swap", swap},
+        {"add", add},
+        {"nop", nop},
         {NULL, NULL}
     };
     for (i = 0; instructions[i].opcode; i++)

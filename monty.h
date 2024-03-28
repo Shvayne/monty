@@ -51,3 +51,8 @@ void (*select_opcode(char *op))(stack_t **, unsigned int);
 void push(stack_t **stack, unsigned int line_num);
 void pall(stack_t **stack, unsigned int line_num);
 void pint(stack_t **stack, unsigned int line_num);
+void pop(stack_t **stack, unsigned int line_num);
+void swap(stack_t **stack, unsigned int line_num);
+size_t len(const stack_t *stack);
+void add(stack_t **stack, unsigned int line_num);
+void nop(__attribute__((unused)) stack_t **stack, unsigned int line_num);
