@@ -32,18 +32,16 @@ int main(int ac, char **av)
 		data.num += 1;
 		if (split_line() == 0)
 		{
-			free(line);
 			continue;
 		}
 		if (_execute(&stack) == -1)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", data.num, data.cmd);
-			free(line);
 			fclose(fp);
 			_free(&stack);
+			free(line);
 			exit(EXIT_FAILURE);
 		}
-		free(line);
 	}
 	free(line);
 	_free(&stack);

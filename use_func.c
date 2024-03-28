@@ -89,9 +89,9 @@ int split_line(void)
 */
 void _free(stack_t **stack)
 {
-    stack_t *temp = *stack;
+    stack_t *temp;
 
-    while (temp != NULL)
+    while( *stack != NULL)
     {
         temp = (*stack)->next;
         free(*stack);
