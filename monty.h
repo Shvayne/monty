@@ -56,3 +56,6 @@ void swap(stack_t **stack, unsigned int line_num);
 size_t len(const stack_t *stack);
 void add(stack_t **stack, unsigned int line_num);
 void nop(__attribute__((unused)) stack_t **stack, unsigned int line_num);
+void sub(stack_t **stack, unsigned int line_num);
+void _div(stack_t **stack, unsigned int line_num);
+void mul(stack_t **stack, unsigned int line_num);
